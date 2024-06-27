@@ -10,6 +10,9 @@ defmodule Defdo.MyApp.MyMvno.Resource.Package do
 
   postgres do
     table "mvno_packages"
+    # With the same repo works.
+    # repo MyApp.Repo
+    # using another repo, cause the error
     repo Defdo.External.Repo
     migrate? true
   end
