@@ -1,4 +1,4 @@
-defmodule MyApp.Repo.Migrations.InstallAshFunctionsExtension320240627224329 do
+defmodule MyApp.Repo.Migrations.InstallAshFunctionsExtension320240628000507 do
   @moduledoc """
   Installs any extensions that are mentioned in the repo's `installed_extensions/0` callback
 
