@@ -5,7 +5,6 @@ defmodule Defdo.MyApp.MyMvno.Resource.Package do
     domain: Defdo.MyApp.Domain.MyMvno,
     extensions: [AshJsonApi.Resource]
 
-  alias Defdo.MyApp.MyMvno.Resource.Enums
   alias Defdo.MyApp.MyMvno.Actor
 
   postgres do
@@ -14,7 +13,6 @@ defmodule Defdo.MyApp.MyMvno.Resource.Package do
     # repo MyApp.Repo
     # using another repo, cause the error
     repo Defdo.External.Repo
-    migrate? true
   end
 
   json_api do
@@ -29,7 +27,8 @@ defmodule Defdo.MyApp.MyMvno.Resource.Package do
 
   actions do
     # Use the default implementation of the :read action
-    defaults [:read]
+    defaults [:read, :create]
+    default_accept :*
   end
 
   # Attributes are the simple pieces of data that exist on your resource
@@ -39,23 +38,7 @@ defmodule Defdo.MyApp.MyMvno.Resource.Package do
 
     attribute :name, :string, public?: true
     attribute :mvno_id, :integer, public?: true
-    attribute :landing, :boolean
-    attribute :call_center, :boolean
-    attribute :ivr, :boolean
-    attribute :sales, :boolean
-    attribute :captive, :boolean
-    attribute :third_party, :boolean
-    attribute :treat_as_gift, :boolean
-    attribute :product_type, :string, public?: true
-    attribute :package_type, :string
-    attribute :package_image, :string, public?: true
-    attribute :can_purchase, :boolean, public?: true
-    attribute :can_topup, :boolean, public?: true
-    attribute :period, Enums.Period, public?: true
-    attribute :category, :string, public?: true
-    attribute :benefits, {:array, :string}, public?: true
-    attribute :service_type, Enums.ServiceType, public?: true
-    attribute :validity, :integer, public?: true
+
     create_timestamp :inserted_at, public?: true
     update_timestamp :updated_at
   end

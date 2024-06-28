@@ -33,7 +33,7 @@ defmodule MyAppWeb.Router do
       Redoc.Plug.RedocUI,
       spec_url: "/my-mvno/api/open-api-spec"
 
-    forward "/api", Defdo.CoreGraphWeb.JsonApi.MyMvnoRouter
+    forward "/api", Defdo.MyApp.JsonApi.MyMvnoRouter
   end
 
   # Other scopes may use custom stacks.

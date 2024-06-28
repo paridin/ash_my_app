@@ -6,12 +6,10 @@ defmodule Defdo.MyApp.MyMvno.Actor do
     extensions: [AshJsonApi.Resource]
 
   alias Defdo.MyApp.MyMvno.Resource.Tenant
-  alias Defdo.MyApp.MyMvno.Resource.Enums
 
   postgres do
     table "actor_apis"
     repo MyApp.Repo
-    migrate? true
   end
 
   json_api do
@@ -37,7 +35,7 @@ defmodule Defdo.MyApp.MyMvno.Actor do
     defaults [:read, :update, :destroy]
 
     create :create do
-      accept [:name, :type, :auth_method, :code, :app_type, :allowed_domains, :client_id]
+      accept [:name, :type, :auth_method, :code, :app_type, :allowed_domains, :client_id, :mvno_profile_id]
     end
 
     read :by_client_id do
